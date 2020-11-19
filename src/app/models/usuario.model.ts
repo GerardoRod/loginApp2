@@ -2,7 +2,7 @@
 
 
 export class UsuarioModel{
-nombre: string ;
-email: string ;
-password: string ;
+nombre?: string;
+email?: string;
+password?: string;
 }
