@@ -15,7 +15,7 @@
                     <input class="input100" 
                            type="email" 
                            name="email" 
-                           [ngModel]= "usuario.email"
+                           [(ngModel)]= "usuario.email"
                            required
                            email
                            placeholder="Email">
@@ -29,7 +29,7 @@
                     <input class="input100"
                            type="password" 
                            name="password"
-                           [ngModel]="usuario.password"
+                           [(ngModel)]="usuario.password"
                            required
                            minlength="6" 
                            placeholder="Password">
@@ -38,7 +38,9 @@
                 
                 <div class="flex-sb-m w-full p-t-3 p-b-24">
                     <div class="contact100-form-checkbox">
-                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                        <input 
+                        [(ngModel)]="rememberMe"
+                        class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
                         <label class="label-checkbox100" for="ckb1">
                             Recordar mi usuario
                         </label>
