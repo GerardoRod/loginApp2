@@ -3,6 +3,6 @@
 
 export class UsuarioModel{
 nombre?: string;
-email?: string;
+email?: string ;
 password?: string;
 }

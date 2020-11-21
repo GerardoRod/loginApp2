@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { UsuarioModel } from '../models/usuario.model';
+
 import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,19 +23,21 @@ export class AuthService {
   // Para iniciar Sesion
   // https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]
 
-  constructor( private http: HttpClient ) { }
+  constructor( private http: HttpClient ) {
+    this.readToken();
+  }
+
 
   logout(){
-
-
+    
   }
 
   login( usuario: UsuarioModel ){
 
     const authData = {
-      email: usuario.email,
-      password: usuario.password,
-      // ...usuario,
+      // email: usuario.email,
+      // password: usuario.password,
+      ...usuario,
       returnSecureToken: true
     };
     return this.http.post(
