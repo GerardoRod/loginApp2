@@ -28,8 +28,8 @@ export class AuthService {
   }
 
 
-  logout(){
-    
+  logout() {
+  localStorage.removeItem( 'token' );
   }
 
   login( usuario: UsuarioModel ){
@@ -78,6 +78,11 @@ export class AuthService {
     this.userToken = idToken;
     localStorage.setItem('token', idToken);
 
+    let hoy = new Date();
+    hoy.setSeconds( 3600 );
+
+    localStorage.setItem('expire', hoy.getTime().toString() );
+
   }
 
   readToken(){
@@ -91,6 +96,22 @@ export class AuthService {
   }
 
   isAutenticated(): boolean{
+
+    if ( this.userToken.length <2 ){
+      return false;
+    } 
+
+    const expire = Number(localStorage.getItem('expire'));
+    const expireDate = new Date();
+    expireDate.setTime(expire);
+
+    if ( expireDate > new Date () ){
+      return true;
+    } else {
+      return false;
+    }
+
+
     return this.userToken.length > 2;
   }
 
