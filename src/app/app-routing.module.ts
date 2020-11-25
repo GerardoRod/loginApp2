@@ -5,12 +5,17 @@ import { HomeComponent } from './pages/home/home.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ReactiveComponent } from './pages/forms/reactive/reactive.component';
+import { TemplateComponent } from './pages/forms/template/template.component';
 
 const routes: Routes = [
   { path: 'home'    , component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'registro', component: RegistroComponent },
   { path: 'login'   , component: LoginComponent },
+  { path: 'reactive'   , component: ReactiveComponent },
+  { path: 'template'   , component: TemplateComponent },
   { path: '**', redirectTo: 'registro' }
+
 ];
 
 @NgModule({

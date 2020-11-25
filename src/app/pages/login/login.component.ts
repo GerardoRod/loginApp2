@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
 
     Swal.fire({
       allowOutsideClick: false,
-      type: 'info',
       text: 'Espere por favor...',
     });
 
@@ -56,7 +55,6 @@ export class LoginComponent implements OnInit {
 
     }, (err) => {
       Swal.fire({
-        type: 'error',
         title: 'Error al autenticar',
         text: err.error.error.message,
       });

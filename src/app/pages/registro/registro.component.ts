@@ -27,7 +27,6 @@ export class RegistroComponent implements OnInit {
 
     Swal.fire({
       allowOutsideClick: false,
-      type: 'info',
       text: 'Espere por favor...',
     });
 
@@ -43,7 +42,6 @@ export class RegistroComponent implements OnInit {
       this.router.navigateByUrl('/home');
     }, (err) => {
       Swal.fire({
-        type: 'error',
         title: 'Error al crear tu cuenta',
         text: err.error.error.message,
       });
